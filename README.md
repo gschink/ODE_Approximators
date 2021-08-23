@@ -1,7 +1,7 @@
 # ODE_Approximators
 Program that uses various approximation methods for ODE's.
 
-This program calculates Euler's method, improved Euler's method, Taylor Method, and RK4. It allows users to input their function and set initial conditions. Below are some pre-worked out functions that the program works on as example's, rather than requiring users to come up with examples to test the program. Program does not give errors between exact values and approximated values.<br>
+This program calculates Euler's method, improved Euler's method, Taylor Method, and RK4. It allows users to input their function and set initial conditions. Below are some test functions for the program. Program does not give errors between exact values and approximated values.<br>
 
 It is important to provide the function in python syntax. Otherwise the program will not be able to make use of the eval() method for strings.<br>
 
