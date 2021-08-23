@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from math import *
 
 selector = int(input("Choose from the list of methods\n"
                      "(1) Euler's Method\n"
@@ -8,18 +9,19 @@ selector = int(input("Choose from the list of methods\n"
                      "(4) RK4\n"
                      "Enter your choice:"))
 
-#Eulers method calculator, entry of basic information to return the approximation table.
+#Eulers method calculator, entry of basic information to return the approximation as a data frame.
 if selector == 1:
     #This class collects user input and stores it in a centralized location. It cuts down on the number of parameters
     #each function takes later
     class info_bundle:
         y_prime = input('Enter the function to approximate:')
-        step_size = float(input('Enter the step size you want to use:'))
-        number_of_approximations = int(input('How many approximations should we do?:'))
-        y_0 = float(input('What is y_0?:'))
-        x_0 = float(input('What is x_0?:'))
+        x_0 = float(input('What is initial value for independent?:'))
+        y_0 = float(input('What is your initial value for dependent?:'))
         x = input('Enter the independent variable:')
         y = input('Enter the dependent variable:')
+        step_size = float(input('Enter the height you want to use:'))
+        number_of_approximations = int(input('How many approximations should we do?:'))
+
     #This class has information that will change often during the run of Euler's method. It's collected here to cut
     #down on parameters and also give those values a global scope relative to this block.
     class y_holder:
@@ -27,6 +29,7 @@ if selector == 1:
         y_val = info_bundle.y_0
         last_step = info_bundle.x_0
 
+    #Creates a list of the steps for use in the data frame.
     def step_creator(info_bundle):
         step_size = info_bundle.step_size
         number_of_approximations = info_bundle.number_of_approximations
@@ -40,10 +43,12 @@ if selector == 1:
 
         return x_set
 
+    #Takes the input user string stored in info_bundle, makes changes to y_holder as it is called. It reads the string
+    #and inputs values into the correct string position for independent or dependent variable.
     def function_parser(info_bundle, y_holder):
         step = y_holder.last_step
         function_holder = []
-
+        print(step)
         for i in range(len(info_bundle.y_prime)):
             if info_bundle.y_prime[i] == info_bundle.x:
                 function_holder.append(str(step))
@@ -52,11 +57,14 @@ if selector == 1:
             else:
                 function_holder.append(info_bundle.y_prime[i])
         t =''.join(function_holder)
+        function_holder = []
 
         y_holder.last_step = y_holder.last_step + info_bundle.step_size
 
         return t
 
+    #Runs Euler's method by calling the function evaluator and making changes to the y_holder class. Relies on information
+    #provided in info_bundle
     def eulers_method(info_bundle, y_holder):
         step = info_bundle.step_size
         runs = info_bundle.number_of_approximations
@@ -64,6 +72,7 @@ if selector == 1:
 
         for i in range(runs):
             func = function_parser(info_bundle, y_holder)
+            print(func)
             y_holder.old_val = y_holder.y_val
             z = step*eval(func)
             end = y_holder.old_val + z
@@ -71,9 +80,10 @@ if selector == 1:
             combined.append(end)
 
         return combined
-    data = {'X':step_creator(info_bundle), "Euelr's Method Approximation":eulers_method(info_bundle, y_holder)}
-    df = pd.DataFrame(data)
 
+    #Simple lines to make and print a df
+    data = {'X':step_creator(info_bundle), "Euelr's Method Approximation": eulers_method(info_bundle, y_holder)}
+    df = pd.DataFrame(data)
     print(df)
 
 elif selector == 2:
@@ -84,4 +94,3 @@ elif selector == 4:
     print('Space Holder')
 else:
     print('Invalid Selection')
-#Runge Kutta 4 method, entry of the baseline information for the method is required
