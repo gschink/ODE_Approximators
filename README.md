@@ -14,7 +14,7 @@ height = .05<br>
 #of approximations = 5<br>
 Outputs:<br>
 X     Euler's Approximation<br>
-.05       1.05<br>
+.05  &nbsp;&nbsp;     1.05<br>
 .10       1.107625<br>
 .15       1.173967<br>
 .20       1.250377<br><br>
