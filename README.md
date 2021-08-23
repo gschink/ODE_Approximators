@@ -7,16 +7,16 @@ This program calculates Euler's method, improved Euler's method, Taylor Method, 
 Function will prompt for inputs:<br>
 function = x+y**2<br>
 initial independent = 0<br>
-initial dependent = 1
-independent = x
-dependent = y
-height = .05
-#of approximations = 5
-Outputs:
-X     Euler's Approximation
-.05       1.05
-.10       1.107625
-.15       1.173967
-.20       1.250377
-.25       1.338549
+initial dependent = 1<br>
+independent = x<br>
+dependent = y<br>
+height = .05<br>
+#of approximations = 5<br>
+Outputs:<br>
+X     Euler's Approximation<br>
+.05       1.05<br>
+.10       1.107625<br>
+.15       1.173967<br>
+.20       1.250377<br><br>
+.25       1.338549<br>
 
