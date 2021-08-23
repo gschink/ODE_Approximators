@@ -13,10 +13,10 @@ dependent = y<br>
 height = .05<br>
 #of approximations = 5<br>
 Outputs:<br>
-X     Euler's Approximation<br>
+X  &nbsp;&nbsp;   Euler's Approximation<br>
 .05  &nbsp;&nbsp;     1.05<br>
-.10       1.107625<br>
-.15       1.173967<br>
-.20       1.250377<br><br>
-.25       1.338549<br>
+.10  &nbsp;&nbsp;     1.107625<br>
+.15  &nbsp;&nbsp;     1.173967<br>
+.20  &nbsp;&nbsp;     1.250377<br><br>
+.25  &nbsp;&nbsp;     1.338549<br>
 
